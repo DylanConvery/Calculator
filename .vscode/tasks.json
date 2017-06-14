@@ -1,0 +1,20 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "0.1.0",
+    "command": "g++",
+    "isShellCommand": true,
+    "args": 
+    [
+        "-I",
+        "${workspaceRoot}/Source/Headers",
+        "${workspaceRoot}/Source/Calculator.cpp", 
+        "${workspaceRoot}/Source/Roman_numerals.cpp", 
+        "${workspaceRoot}/Source/Symbol_table.cpp",
+        "${workspaceRoot}/Source/Token_stream.cpp", 
+        "-std=c++14", 
+        "-o",
+        "${workspaceRoot}/Builds/Calculator"
+    ],
+    "showOutput": "always"
+}
