@@ -27,19 +27,6 @@ Token Token_stream::get() {
 		case '%':
 		case ',':
 			return Token{ input }; // let character represent itself
-		case ':':
-		{
-			//clean this up
-			std::string s;
-			s += input;
-			my_input.get(input);
-			s += input;
-			s += ' ';
-			if (s == prompt || s == result) {
-				return Token(print);
-			}
-			error("Bad input...");
-		}
 		case '.':
 		case '0': case '1': case '2': case '3': case '4':
 		case '5': case '6': case '7': case '8': case '9':
@@ -115,9 +102,9 @@ void Token_stream::ignore(const char &c) {
 	}
 	full = false;
 	// search input
-	char rem_Input;
-	while (my_input.get(rem_Input)) {
-		if (rem_Input == c || rem_Input == '\n') {
+	char input;
+	while (input.get(input)) {
+		if (input == c || input == '\n') {
 			return;
 		}
 	}
