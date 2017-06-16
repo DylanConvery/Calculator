@@ -242,59 +242,14 @@ void clean_up_mess(Token_stream &ts) {
 }
 
 void manual(std::ostream &os, Token_stream &ts) {
-	const vector<std::string>manual{
-		"Supported operations -",
-		"1) Addition - '+'",
-		"2) Subtraction - '-'",
-		"3) Multiplication - '*'",
-		"4) Division - '/'",
-		"5) Modulus - '%'",
-		"6) Negative Numbers - '-x'",
-		"7) parenthesis - '(x)'",
-		"",
-		"Supported functions -",
-		"1) sqrt(x)",
-		"2) pow(x)",
-		"",
-		"Defining a variable -",
-		"Start by writing \"var\" at the beginning ",
-		"of your statement, followed by a space, ",
-		"then the name of your variable, followed ",
-		"by another space and then an '=' ",
-		"followed by another space. Now you ",
-		"assign your variable a value.",
-		"",
-		"Example : var x = 5 * sqrt(6)",
-		"",
-		"Defining a constant - ",
-		"Defining a constant follows the same ",
-		"steps as for defining a variable except ",
-		"instead of writing \"var\" at the beginning, ",
-		"we instead write \"const\" followed by the ",
-		"a \"var\" meaning it's a constant variable.",
-		"",
-		"Example : const var x = 5 * sqrt(6)",
-		"",
-		"Predefined constants - ",
-		"1) pi = 3.141592653",
-		"2) e = 2.7182818284",
-		"3) k = 1000",
-		"",
-		"Taking input from a file - ",
-		"",
-		"Type \"from\" followed by the file name",
-		"you are requesting to be interpretted.",
-		"",
-		"Example : from x",
-		"",
-		"Outputting to a file - ",
-		"",
-		"Type \"to\" followed by the name of your file.",
-		"To return from outputting to a file, type \"exit\".",
-		"",
-		"Example : to y"
-	};
-	for (const std::string &i : manual) {
+	std::ifstream ifs{"manual"};
+	if (!ifs)error("can't open input stream manual");
+	vector<std::string>_manual;
+	for(std::string s; getline(ifs,s);){
+		_manual.push_back(s);
+	}
+	
+	for (const std::string &i : _manual) {
 		os << result << "~ " << i << "\n";
 	}
 	os << prompt;
