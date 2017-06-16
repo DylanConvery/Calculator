@@ -30,8 +30,13 @@ bld/
 # Visual Studio Code
 .vscode/
 
-#User files
+#Visual Studio Project Files
 *.vcxproj
+*.vcxproj.filters
+*.sln
+
+#User files
+###########
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
