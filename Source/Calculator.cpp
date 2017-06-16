@@ -278,7 +278,21 @@ void manual(std::ostream &os, Token_stream &ts) {
 		"Predefined constants - ",
 		"1) pi = 3.141592653",
 		"2) e = 2.7182818284",
-		"3) k = 1000"
+		"3) k = 1000",
+		"",
+		"Taking input from a file - ",
+		"",
+		"Type \"from\" followed by the file name",
+		"you are requesting to be interpretted.",
+		"",
+		"Example : from x",
+		"",
+		"Outputting to a file - ",
+		"",
+		"Type \"to\" followed by the name of your file.",
+		"To return from outputting to a file, type \"exit\".",
+		"",
+		"Example : to y"
 	};
 	for (const std::string &i : manual) {
 		os << result << "~ " << i << "\n";

@@ -103,7 +103,7 @@ void Token_stream::ignore(const char &c) {
 	full = false;
 	// search input
 	char input;
-	while (input.get(input)) {
+	while (my_input.get(input)) {
 		if (input == c || input == '\n') {
 			return;
 		}
