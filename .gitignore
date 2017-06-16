@@ -31,7 +31,6 @@ bld/
 .vscode/
 
 #User files
-Build/
 *.vcxproj
 
 # MSTest test Results
