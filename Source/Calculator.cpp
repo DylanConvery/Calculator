@@ -4,6 +4,8 @@
 Token_stream ts;
 Symbol_table st;
 
+static const std::string manualPath = "\manual";
+
 double expression(Token_stream &ts, Symbol_table &st);
 double declaration(bool type, Token_stream &ts, Symbol_table &st) {
 	Token t;
@@ -242,14 +244,14 @@ void clean_up_mess(Token_stream &ts) {
 }
 
 void manual(std::ostream &os, Token_stream &ts) {
-	std::ifstream ifs{"manual"};
+	std::ifstream ifs{manualPath};
 	if (!ifs)error("can't open input stream manual");
-	vector<std::string>_manual;
+	vector<std::string>manual;
 	for(std::string s; getline(ifs,s);){
-		_manual.push_back(s);
+		manual.push_back(s);
 	}
 	
-	for (const std::string &i : _manual) {
+	for (const std::string &i : manual) {
 		os << result << "~ " << i << "\n";
 	}
 	os << prompt;

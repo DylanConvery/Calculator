@@ -36,14 +36,12 @@ Predefined constants -
 3) k = 1000
 
 Taking input from a file -
-
 Type \"from\" followed by the file name
 you are requesting to be interpretted.
 
 Example : from x
 
 Outputting to a file - 
-
 Type "to" followed by the name of your file.
 To return from outputting to a file, type "exit".
 
