@@ -1,10 +1,11 @@
 #ifndef TOKEN_STREAM_H
 #define TOKEN_STREAM_H
 
-#include "std_lib_facilities.h"
+
 #include "Token.h"
-//#include <string>
-//#include <iostream>
+#include <stdexcept>
+
+namespace token_stream{
 
 const char number = '~';
 const char print = ';';
@@ -36,9 +37,9 @@ const std::string tokey = "to";
 
 class Token_stream {
 public:
-	Token_stream() : my_input(cin) {}
-	Token_stream(istream &is) : my_input(is) {}
-	istream &my_input;
+	Token_stream() : my_input(std::cin) {}
+	Token_stream(std::istream &is) : my_input(is) {}
+	std::istream &my_input;
 
 	Token get();
 	void putback(const Token &t);
@@ -47,5 +48,6 @@ private:
 	Token buffer;
 	bool full{ false };
 };
+}
 
 #endif // !TOKEN_STREAM_H

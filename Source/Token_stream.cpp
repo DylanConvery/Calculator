@@ -1,5 +1,6 @@
 #include "Token_stream.h"
 
+namespace token_stream{
 /// read characters from cin and compose a token
 Token Token_stream::get() {
 	if (full) { // do we already have a Token ready for use?
@@ -78,7 +79,7 @@ Token Token_stream::get() {
 				}
 				return Token{ name, s };
 			}
-			error("Bad input...");
+			throw std::runtime_error("Bad input...");
 		}
 	}
 	return Token{ exiting };
@@ -87,7 +88,7 @@ Token Token_stream::get() {
 /// wipe and fill buffer
 void Token_stream::putback(const Token &t) {
 	if (full) {
-		error("buffer is full");
+		throw std::runtime_error("buffer is full");
 	}
 	buffer = t;
 	full = true; // buffer is now full
@@ -108,4 +109,5 @@ void Token_stream::ignore(const char &c) {
 			return;
 		}
 	}
+}
 }

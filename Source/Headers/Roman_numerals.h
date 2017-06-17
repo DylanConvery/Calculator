@@ -2,7 +2,6 @@
 #define ROMAN_NUMERAL_H
 
 #include <iostream>
-#include <fstream>
 #include <string>
 
 namespace roman {
